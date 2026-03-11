@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
     float mainThrust = 1000f;
     float rotationThrust = 100f;
+    [SerializeField]AudioClip mainEngine;
     Rigidbody rb;
     AudioSource a;
 
@@ -31,7 +32,7 @@ public class Movement : MonoBehaviour
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime); //it means (0,1,0)
             if (!a.isPlaying)
             {
-                a.Play();
+                a.PlayOneShot(mainEngine);
             }
         }else
         {

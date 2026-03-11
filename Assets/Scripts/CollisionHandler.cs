@@ -3,8 +3,26 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    float delay = 2f;
+
+    Movement m;
+    [SerializeField]AudioClip crash;
+    [SerializeField]AudioClip success;
+    AudioSource a;
+
+    bool isTransitioning = false;
+
+    void Start()
+    {
+        m = GetComponent<Movement>();
+        a = GetComponent<AudioSource>();
+    }
      void OnCollisionEnter(Collision other) 
     {
+        if (isTransitioning)
+        {
+            return;
+        }
         switch (other.gameObject.tag)
         {
             case "Friendly":
@@ -14,16 +32,36 @@ public class CollisionHandler : MonoBehaviour
                 }
             case "Finish":
                 {
-                   NextLevel();
+                    StartSuccessSequence();
                     break;
                 }
             default:
                 {
                     //Create Method to reload the Scene
-                    Respawn();
+                    StartCrashSeqeunce();
                     break;
                 }
         }
+    }
+
+    void StartCrashSeqeunce()
+    {
+        isTransitioning = true;
+        a.Stop();
+        a.PlayOneShot(crash); 
+        
+        m.enabled = false; // Disable the movement script while we are in delay of 1 sec 
+        Invoke("Respawn", delay); // Respawn after 1 second
+    }
+
+    void StartSuccessSequence()
+    {
+        isTransitioning = true;
+        a.Stop();
+        a.PlayOneShot(success);
+
+        m.enabled = false; // Disable the movement script while we are in delay of 1 sec
+        Invoke("NextLevel",delay); // Jump to the next level after 1 second
     }
 
     //function to respawn 
@@ -36,6 +74,7 @@ public class CollisionHandler : MonoBehaviour
     //Jump on to the next level
     void NextLevel()
     {
+       
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
