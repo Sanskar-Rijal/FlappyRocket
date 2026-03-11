@@ -8,6 +8,10 @@ public class CollisionHandler : MonoBehaviour
     Movement m;
     [SerializeField]AudioClip crash;
     [SerializeField]AudioClip success;
+
+    //For Particles
+    [SerializeField]ParticleSystem crashParticles;
+    [SerializeField]ParticleSystem successParticles;
     AudioSource a;
 
     bool isTransitioning = false;
@@ -49,6 +53,7 @@ public class CollisionHandler : MonoBehaviour
         isTransitioning = true;
         a.Stop();
         a.PlayOneShot(crash); 
+        crashParticles.Play();
         
         m.enabled = false; // Disable the movement script while we are in delay of 1 sec 
         Invoke("Respawn", delay); // Respawn after 1 second
@@ -59,7 +64,7 @@ public class CollisionHandler : MonoBehaviour
         isTransitioning = true;
         a.Stop();
         a.PlayOneShot(success);
-
+        successParticles.Play();
         m.enabled = false; // Disable the movement script while we are in delay of 1 sec
         Invoke("NextLevel",delay); // Jump to the next level after 1 second
     }
