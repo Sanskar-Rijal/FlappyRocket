@@ -19,7 +19,43 @@ public class Movement : MonoBehaviour
     bool isRotatingLeft;
     bool isRotatingRight;
 
+    // Touch input flags (set by UI buttons)
+    bool isTouchThrusting;
+    bool isTouchRotatingLeft;
+    bool isTouchRotatingRight;
+
     // Start is called before the first frame update
+
+   public void StartThrust()
+    {
+        isTouchThrusting = true;
+    }
+
+    public void StopThrust()
+    {
+        isTouchThrusting = false;
+    }
+
+    public void StartRotateLeft()
+    {
+        isTouchRotatingLeft = true;
+    }
+
+    public void StopRotateLeft()
+    {
+        isTouchRotatingLeft = false;
+    }
+
+    public void StartRotateRight()
+    {
+        isTouchRotatingRight = true;
+    }
+
+    public void StopRotateRight()
+    {
+        isTouchRotatingRight = false;
+    }
+
     void Start()
     {
        // Application.targetFrameRate = 40;
@@ -31,9 +67,9 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isThrusting = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) ;
-        isRotatingLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
-        isRotatingRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
+        isThrusting = isTouchThrusting || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow);
+        isRotatingLeft = isTouchRotatingLeft || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
+        isRotatingRight = isTouchRotatingRight || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
         ProcessThrustEffect();
         ProcessRotationEffect();
     }

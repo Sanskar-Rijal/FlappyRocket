@@ -12,8 +12,10 @@ public class Oscillator : MonoBehaviour
      private void Start() 
      {
         StartingPosition = transform.position;
-    }
+     }
     
+
+
     private void Update() 
     {
         //If period is zero, then our app will creash 
