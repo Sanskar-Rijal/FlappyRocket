@@ -31,9 +31,9 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isThrusting = Input.GetKey(KeyCode.Space);
-        isRotatingLeft = Input.GetKey(KeyCode.A);
-        isRotatingRight = Input.GetKey(KeyCode.D);
+        isThrusting = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) ;
+        isRotatingLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
+        isRotatingRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
         ProcessThrustEffect();
         ProcessRotationEffect();
     }
