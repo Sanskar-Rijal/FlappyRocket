@@ -1449,7 +1449,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1157217302}
           m_TargetAssemblyTypeName: Movement, Assembly-CSharp
           m_MethodName: StartRotateLeft
           m_Mode: 1
@@ -1465,7 +1465,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1157217302}
           m_TargetAssemblyTypeName: Movement, Assembly-CSharp
           m_MethodName: StopRotateLeft
           m_Mode: 1
@@ -1569,6 +1569,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2692936066291352410, guid: 7136ab5e54e7d4737b26e7bd144d4c21, type: 3}
   m_PrefabInstance: {fileID: 943452527}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1157217302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1814571329302378198, guid: 7f32b81603568423a9ed0c87b9c2141b, type: 3}
+  m_PrefabInstance: {fileID: 8178812202224408539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4a7bd5b76fe4d4bbce377ecd9b0180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1241853772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,7 +1948,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1157217302}
           m_TargetAssemblyTypeName: Movement, Assembly-CSharp
           m_MethodName: StartThrust
           m_Mode: 1
@@ -1953,7 +1964,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1157217302}
           m_TargetAssemblyTypeName: Movement, Assembly-CSharp
           m_MethodName: StopThrust
           m_Mode: 1
@@ -2015,7 +2026,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2994,7 +3005,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1157217302}
           m_TargetAssemblyTypeName: Movement, Assembly-CSharp
           m_MethodName: StartRotateRight
           m_Mode: 1
@@ -3010,7 +3021,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1157217302}
           m_TargetAssemblyTypeName: Movement, Assembly-CSharp
           m_MethodName: StopRotateRight
           m_Mode: 1
